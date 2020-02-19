@@ -1,0 +1,26 @@
+#include<queue>
+#include<vector>
+vector<int> mergeKSortedArrays(vector<vector<int>*> input){
+    
+    priority_queue<int,vector<int>,greater<int>> pq;
+    
+    
+    for(int i=0;i<input.size();i++){
+        vector<int> *current=input[i];
+        for(int j=0;j<current->size();j++){
+            
+            pq.push(current->at(j));
+        }
+    }
+    
+    vector<int> ans;
+    int size=pq.size();
+    for(int i=0;i<size;i++){
+        
+        ans.push_back(pq.top());
+        pq.pop();
+    }
+    
+    return ans;
+    
+}
